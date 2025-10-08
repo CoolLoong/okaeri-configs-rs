@@ -1,0 +1,24 @@
+[package]
+name = "okaeri-configs-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "okaeri configuration library for Rust"
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace = true
+okaeri-configs-derive = { workspace = true }
+serde_json = { workspace = true, optional = true }
+json5 = { version = "0.4", optional = true }
+toml = { workspace = true, optional = true }
+serde_yaml_bw = { version = "2.4.1", optional = true }
+
+[features]
+default = ["all"]
+json = ["dep:serde_json", "dep:json5"]
+toml = ["dep:toml"]
+yaml = ["dep:serde_yaml_bw"]
+all = ["json", "toml", "yaml"]
