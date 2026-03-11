@@ -24,13 +24,13 @@ repository = "https://github.com/CoolLoong/okaeri-configs-rs"
 [workspace.dependencies]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-toml = "0.9.7"
+toml = "0.9.8"
 toml_edit = "0.23.6"
 syn = { version = "2.0", features = ["full"] }
 quote = "1.0"
 proc-macro2 = "1.0"
 thiserror = "2.0.17"
-okaeri-configs-core = { path = "crates/okaeri-configs-core" }
+okaeri-configs-core = { path = "crates/okaeri-configs-core", default-features = false }
 okaeri-configs-derive = { path = "crates/okaeri-configs-derive" }
 
 [dependencies]
@@ -38,7 +38,7 @@ okaeri-configs-core = { workspace = true }
 serde = { workspace = true }
 
 [features]
-default = ["all"]
+default = []
 toml = ["okaeri-configs-core/toml"]
 json = ["okaeri-configs-core/json"]
 yaml = ["okaeri-configs-core/yaml"]
@@ -46,7 +46,7 @@ all = ["json", "toml", "yaml"]
 
 [dev-dependencies]
 serde = { workspace = true }
-ctor = "0.5"
+ctor = "0.6.3"
 temp-env = "0.3"
 
 [[example]]
